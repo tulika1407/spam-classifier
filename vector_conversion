@@ -1,0 +1,11 @@
+from collections import Counter
+
+total_counts = Counter()
+for i in range(len(text)):
+    for word in text.values[i][0].split(" "):
+        total_counts[word] += 1
+
+print("Total words in data set: ", len(total_counts))
+
+# OUTPUT
+Total words in data set:  11305
