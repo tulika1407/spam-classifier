@@ -1,0 +1,28 @@
+#import sklearn packages for building classifiers
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+#initialize multiple classification models
+svc = SVC(kernel='sigmoid', gamma=1.0)
+knc = KNeighborsClassifier(n_neighbors=49)
+mnb = MultinomialNB(alpha=0.2)
+dtc = DecisionTreeClassifier(min_samples_split=7, random_state=111)
+lrc = LogisticRegression(solver='liblinear', penalty='l1')
+rfc = RandomForestClassifier(n_estimators=31, random_state=111)
+#create a dictionary of variables and models
+clfs = {'SVC' : svc,'KN' : knc, 'NB': mnb, 'DT': dtc, 'LR': lrc, 'RF': rfc}
+#fit the data onto the models
+def train(clf, features, targets):
+    clf.fit(features, targets)
+
+def predict(clf, features):
+    return (clf.predict(features))
+pred_scores_word_vectors = []
+for k,v in clfs.items():
+    train(v, X_train, y_train)
+    pred = predict(v, X_test)
+    pred_scores_word_vectors.append((k, [accuracy_score(y_test , pred)]))
