@@ -1,0 +1,10 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer()
+vectors = vectorizer.fit_transform(data['text'])
+vectors.shape
+
+# OUTPUT
+(5572, 9376)
+#features = word_vectors
+features = vectors
