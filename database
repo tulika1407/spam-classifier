@@ -1,0 +1,16 @@
+data = pd.read_csv('dataset/spam.csv', encoding='latin-1')
+data.head()
+data = data.drop(["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
+data = data.rename(columns={"v2" : "text", "v1":"label"})
+data[1990:2000]
+data['label'].value_counts()
+
+# OUTPUT
+ham     4825
+spam     747
+Name: label, dtype: int64
+
+import nltk
+nltk.download("punkt")
+import warnings
+warnings.filterwarnings('ignore
