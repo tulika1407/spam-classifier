@@ -1,0 +1,13 @@
+#write functions to detect if the message is spam or not
+def find(x):
+    if x == 1:
+        print ("Message is SPAM")
+    else:
+        print ("Message is NOT Spam")
+newtext = ["Free entry"]
+integers = vectorizer.transform(newtext)
+x = mnb.predict(integers)
+find(x)
+
+# OUTPUT
+Message is SPAM
